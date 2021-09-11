@@ -29,15 +29,6 @@
             <span>Duration:</span> {{ movie.runtime }} minutes
           </p>
           <p class="movie-fact">
-            <span>Budget:</span>
-            {{
-              movie.budget.toLocaleString('en-us', {
-                style: 'currency',
-                currency: 'USD',
-              })
-            }}
-          </p>
-          <p class="movie-fact">
             <span>Revenue:</span>
             {{
               movie.revenue.toLocaleString('en-us', {
@@ -81,21 +72,12 @@ export default {
       )
       const result = await data
       this.movie = result.data
-      console.log(result)
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.home-enter-active,
-.home-leave-active {
-  transition: opacity 0.5s;
-}
-.home-enter,
-.home-leave-active {
-  opacity: 0;
-}
 .single-movie {
   color: #fff;
   min-height: 100vh;

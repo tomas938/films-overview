@@ -47,6 +47,13 @@
             }}
           </p>
           <p class="movie-fact"><span>Overview:</span> {{ movie.overview }}</p>
+          <div class="movie-fact">
+            {{ movie.production_companies[1].name }}
+            <img
+              :src="`https://image.tmdb.org/t/p/w500/${movie.production_companies[1].logo_path}`"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>

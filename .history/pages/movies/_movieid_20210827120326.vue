@@ -47,6 +47,17 @@
             }}
           </p>
           <p class="movie-fact"><span>Overview:</span> {{ movie.overview }}</p>
+          <div
+            v-for="(company, index) in movie.production_companies"
+            :key="comapny.id"
+            class="movie-fact"
+          >
+            <!-- {{ movie.production_companies[1].name }}
+            <img
+              :src="`https://image.tmdb.org/t/p/w500/${movie.production_companies[1].logo_path}`"
+              alt=""
+            /> -->
+          </div>
         </div>
       </div>
     </div>

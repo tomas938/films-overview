@@ -47,6 +47,10 @@
             }}
           </p>
           <p class="movie-fact"><span>Overview:</span> {{ movie.overview }}</p>
+          <p class="movie-fact">
+            {{ movie.production_companies[1].name }}
+            <img :src="movie.production_companies[1].logo_path" alt="" />
+          </p>
         </div>
       </div>
     </div>

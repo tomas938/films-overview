@@ -47,6 +47,9 @@
             }}
           </p>
           <p class="movie-fact"><span>Overview:</span> {{ movie.overview }}</p>
+          <p class="movie-fact">
+            {{ movie.production_companies[1].name }}
+          </p>
         </div>
       </div>
     </div>

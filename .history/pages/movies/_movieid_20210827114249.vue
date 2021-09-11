@@ -38,6 +38,15 @@
             }}
           </p>
           <p class="movie-fact">
+            <span>Budget:</span>
+            {{
+              movie.budget.toLocaleString('en-us', {
+                style: 'currency',
+                currency: 'USD',
+              })
+            }}
+          </p>
+          <p class="movie-fact">
             <span>Revenue:</span>
             {{
               movie.revenue.toLocaleString('en-us', {

@@ -1,56 +1,47 @@
 <template>
   <Loading v-if="$fetchState.pending"></Loading>
-  <transition name="home" v-else>
-    <div class="container single-movie">
-      <Nuxt-link class="button" :to="{ name: 'index' }">Back</Nuxt-link>
-      <div class="movie-info">
-        <div class="movie-img">
-          <img
-            :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
-            alt=""
-          />
-        </div>
-        <div class="movie-content">
-          <h1>Title: {{ movie.title }}</h1>
-          <p class="movie-fact tagline">
-            <span>Tagline:</span>"{{ movie.tagline }}"
-          </p>
-          <p class="movie-fact">
-            <span>Released:</span>
-            {{
-              new Date(movie.release_data).toLocaleString('en-us', {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-              })
-            }}
-          </p>
-          <p class="movie-fact">
-            <span>Duration:</span> {{ movie.runtime }} minutes
-          </p>
-          <p class="movie-fact">
-            <span>Budget:</span>
-            {{
-              movie.budget.toLocaleString('en-us', {
-                style: 'currency',
-                currency: 'USD',
-              })
-            }}
-          </p>
-          <p class="movie-fact">
-            <span>Revenue:</span>
-            {{
-              movie.revenue.toLocaleString('en-us', {
-                style: 'currency',
-                currency: 'USD',
-              })
-            }}
-          </p>
-          <p class="movie-fact"><span>Overview:</span> {{ movie.overview }}</p>
-        </div>
+  <!-- <transition name="home" v-else> -->
+  <div class="container single-movie">
+    <Nuxt-link class="button" :to="{ name: 'index' }">Back</Nuxt-link>
+    <div class="movie-info">
+      <div class="movie-img">
+        <img
+          :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
+          alt=""
+        />
+      </div>
+      <div class="movie-content">
+        <h1>Title: {{ movie.title }}</h1>
+        <p class="movie-fact tagline">
+          <span>Tagline:</span>"{{ movie.tagline }}"
+        </p>
+        <p class="movie-fact">
+          <span>Released:</span>
+          {{
+            new Date(movie.release_data).toLocaleString('en-us', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            })
+          }}
+        </p>
+        <p class="movie-fact">
+          <span>Duration:</span> {{ movie.runtime }} minutes
+        </p>
+        <p class="movie-fact">
+          <span>Revenue:</span>
+          {{
+            movie.revenue.toLocaleString('en-us', {
+              style: 'currency',
+              currency: 'USD',
+            })
+          }}
+        </p>
+        <p class="movie-fact"><span>Overview:</span> {{ movie.overview }}</p>
       </div>
     </div>
-  </transition>
+  </div>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -81,7 +72,6 @@ export default {
       )
       const result = await data
       this.movie = result.data
-      console.log(result)
     },
   },
 }

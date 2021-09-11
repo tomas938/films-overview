@@ -47,6 +47,25 @@
             }}
           </p>
           <p class="movie-fact"><span>Overview:</span> {{ movie.overview }}</p>
+          <p class="movie-fact" v-if="movie.production_companies.length > 0">
+            <span>Production companies:</span>
+          </p>
+          <div
+            class="production-companies"
+            v-for="(company, index) in movie.production_companies"
+            :key="index"
+          >
+            <div class="production-company">
+              <p class="movie-fact">
+                {{ company.name }}
+              </p>
+              <img
+                v-if="company.logo_path !== null"
+                :src="`https://image.tmdb.org/t/p/w500/${company.logo_path}`"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -145,6 +164,19 @@ export default {
         font-style: italic;
         span {
           font-style: normal;
+        }
+      }
+      .production-companies {
+        display: flex;
+      }
+      .production-company {
+        width: 150px;
+        height: 150px;
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       }
     }

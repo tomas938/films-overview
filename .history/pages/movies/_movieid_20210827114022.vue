@@ -32,7 +32,6 @@
             <span>Budget:</span>
             {{
               movie.budget.toLocaleString('en-us', {
-                style: 'currency',
                 currency: 'USD',
               })
             }}

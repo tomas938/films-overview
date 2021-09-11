@@ -1,7 +1,7 @@
 <template>
   <Loading v-if="$fetchState.pending"></Loading>
-  <transition name="home" v-else>
-    <div class="container single-movie">
+  <transition name="home">
+    <div v-else class="container single-movie">
       <Nuxt-link class="button" :to="{ name: 'index' }">Back</Nuxt-link>
       <div class="movie-info">
         <div class="movie-img">
@@ -27,15 +27,6 @@
           </p>
           <p class="movie-fact">
             <span>Duration:</span> {{ movie.runtime }} minutes
-          </p>
-          <p class="movie-fact">
-            <span>Budget:</span>
-            {{
-              movie.budget.toLocaleString('en-us', {
-                style: 'currency',
-                currency: 'USD',
-              })
-            }}
           </p>
           <p class="movie-fact">
             <span>Revenue:</span>
@@ -81,21 +72,12 @@ export default {
       )
       const result = await data
       this.movie = result.data
-      console.log(result)
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.home-enter-active,
-.home-leave-active {
-  transition: opacity 0.5s;
-}
-.home-enter,
-.home-leave-active {
-  opacity: 0;
-}
 .single-movie {
   color: #fff;
   min-height: 100vh;

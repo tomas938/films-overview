@@ -29,9 +29,9 @@
             <span>Duration:</span> {{ movie.runtime }} minutes
           </p>
           <p class="movie-fact">
-            <span>Budget:</span>
+            <span>Revenue:</span>
             {{
-              movie.budget.toLocaleString('en-us', {
+              movie.revenue.toLocaleString('en-us', {
                 style: 'currency',
                 currency: 'USD',
               })

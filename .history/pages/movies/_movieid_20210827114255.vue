@@ -38,6 +38,13 @@
             }}
           </p>
           <p class="movie-fact">
+            <span>Budget:</span>
+            {{
+            
+              }
+            }}
+          </p>
+          <p class="movie-fact">
             <span>Revenue:</span>
             {{
               movie.revenue.toLocaleString('en-us', {
